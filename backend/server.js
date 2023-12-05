@@ -37,11 +37,11 @@ app.use("/api/products", productRoute);
 app.use("/api/contactus", contactRoute);
 
 // Serve the React app
-app.use(express.static(path.join(__dirname, "../portfolio/dev/frontend/build")));
+app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 // Handle any other routes by serving the React app's index.html
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../portfolio/dev/frontend/build/index.html"));
+  res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
 });
 
 // Error Middleware
