@@ -29,7 +29,7 @@
   },
 
 "scripts": {
-  "heroku-postbuild": "cd frontend && npm install --only=dev && npm install && npm run build && ls -al build"
+  "heroku-postbuild": "cd frontend && npm install --only=dev && npm install && npm run build && ls -al build",
   "start": "react-scripts start",
   "build": "react-scripts build",
   "test": "react-scripts test",
