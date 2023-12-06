@@ -7,9 +7,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-     "start": "node server.js",
-     "server": "nodemon server.js",
-     "heroku-postbuild": "cd REP_ALV-SALE_SYSTEM && cd frontend && npm install --only=dev && npm install && npm run build"
+  "start": "node server.js",
+  "server": "nodemon server.js",
+  "heroku-postbuild": "cd REP_ALV-SALE_SYSTEM && cd frontend && npm install --only=dev && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
