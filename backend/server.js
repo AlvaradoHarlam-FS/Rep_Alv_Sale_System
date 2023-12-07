@@ -21,10 +21,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('build'));
 app.use(
-  cors({
+ cors({
     origin: ["http://localhost:3000", "https://dev--repuestosalvarado.netlify.app"],
     credentials: true,
-  })
+ })
 );
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
@@ -38,11 +38,11 @@ app.use("/api/products", productRoute);
 app.use("/api/contactus", contactRoute);
 
 // Serve the React app
-app.use(express.static(path.join(__dirname, "../frontend/build")));
+app.use(express.static(path.join(__dirname, "frontend/build")));
 
 // Handle any other routes by serving the React app's index.html
 app.get("*", (_req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
+ res.sendFile(path.join(__dirname, "frontend/build/index.html"));
 });
 
 // Error Middleware
@@ -52,13 +52,13 @@ app.use(errorHandler);
 const mongoURI = process.env.MONGO_URI;
 
 if (!mongoURI) {
-  console.error("MongoDB URI not found in environment variables");
-  process.exit(1);
+ console.error("MongoDB URI not found in environment variables");
+ process.exit(1);
 }
 
 mongoose
-  .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
+ .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+ .then(() => {
     const server = app.listen(process.env.PORT || 5001, () => {
       console.log(`Server Running on port ${server.address().port}`);
     });
@@ -81,13 +81,13 @@ mongoose
         });
       });
     });
-  })
-  .catch((err) => console.error("MongoDB connection error:", err));
+ })
+ .catch((err) => console.error("MongoDB connection error:", err));
 
 mongoose.connection.on("disconnected", () => {
-  console.log("MongoDB disconnected");
+ console.log("MongoDB disconnected");
 });
 
 mongoose.connection.on("error", (err) => {
-  console.error("MongoDB connection error:", err);
+ console.error("MongoDB connection error:", err);
 });
