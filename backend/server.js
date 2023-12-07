@@ -38,7 +38,7 @@ app.use("/api/products", productRoute);
 app.use("/api/contactus", contactRoute);
 
 // Serve the React app
-const buildPath = path.resolve(__dirname, "build"); // Adjusted path
+const buildPath = path.resolve(__dirname, "frontend", "build");
 const indexPath = path.join(buildPath, "index.html");
 
 console.log("Static Path:", buildPath);
