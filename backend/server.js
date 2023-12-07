@@ -38,16 +38,18 @@ app.use("/api/products", productRoute);
 app.use("/api/contactus", contactRoute);
 
 // Serve the React app
-const indexPath = path.resolve(__dirname, "frontend", "build", "index.html");
+const buildPath = path.resolve(__dirname, "frontend", "build");
 
-console.log("Static Path:", path.join(__dirname, "frontend", "build"));
-console.log("Index Path:", indexPath);
+// ...
 
-app.use(express.static(path.join(__dirname, "frontend", "build")));
+app.use(express.static(buildPath));
+
+// ...
 
 app.get("*", (req, res) => {
-  res.sendFile(indexPath);
+  res.sendFile(path.join(buildPath, "index.html"));
 });
+
 
 // Error Middleware
 app.use(errorHandler);
