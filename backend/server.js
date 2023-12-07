@@ -13,16 +13,15 @@ const morgan = require("morgan");
 
 const app = express();
 
-// Middlewares//middd
+// Middlewares
 app.use(morgan("combined")); // Logging middleware
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static('build'));
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://dev--repuestosalvarado.netlify.app"],
+    origin: ["http://localhost:3000"],
     credentials: true,
   })
 );
@@ -38,11 +37,11 @@ app.use("/api/products", productRoute);
 app.use("/api/contactus", contactRoute);
 
 // Serve the React app
-app.use(express.static(path.join(__dirname, "../frontend/build")));
+app.use(express.static(path.join(__dirname, "../portfolio/dev/frontend/build")));
 
 // Handle any other routes by serving the React app's index.html
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
+  res.sendFile(path.join(__dirname, "../portfolio/dev/frontend/build/index.html"));
 });
 
 // Error Middleware
