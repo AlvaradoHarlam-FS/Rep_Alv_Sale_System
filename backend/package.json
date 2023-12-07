@@ -6,7 +6,6 @@
   },
   "description": "",
   "main": "server.js",
-  "build": "npm i"
   },
   "keywords": [],
   "author": "",
