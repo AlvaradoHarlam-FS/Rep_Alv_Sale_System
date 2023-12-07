@@ -6,10 +6,7 @@
   },
   "description": "",
   "main": "server.js",
-  "scripts": {
-  "start": "node server.js",
-  "server": "nodemon server.js",
-  "heroku-postbuild": "cd frontend && npm install --only=dev && npm install && npm run build"
+  "build": "npm i"
   },
   "keywords": [],
   "author": "",
