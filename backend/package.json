@@ -6,7 +6,9 @@
   },
   "description": "",
   "main": "server.js",
-
+"scripts": {
+    "start": "node server.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
