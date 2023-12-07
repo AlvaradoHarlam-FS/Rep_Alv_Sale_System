@@ -38,12 +38,12 @@ app.use("/api/products", productRoute);
 app.use("/api/contactus", contactRoute);
 
 // Serve the React app
-const indexPath = path.resolve(__dirname, "/frontend/build/index.html");
+const indexPath = path.resolve(__dirname, "frontend", "build", "index.html");
 
-console.log("Static Path:", path.join(__dirname, "/frontend/build"));
+console.log("Static Path:", path.join(__dirname, "frontend", "build"));
 console.log("Index Path:", indexPath);
 
-app.use(express.static(path.join(__dirname, "/frontend/build")));
+app.use(express.static(path.join(__dirname, "frontend", "build")));
 
 app.get("*", (req, res) => {
   res.sendFile(indexPath);
